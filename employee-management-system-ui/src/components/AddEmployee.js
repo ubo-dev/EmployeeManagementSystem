@@ -9,20 +9,20 @@ const AddEmployee = () => {
     emailId: "",
   });
 
-  const handleChange = (e) => 
-  {
+  const handleChange = (e) => {
     const value = e.target.value;
-    setemployee({...employee,[e.target.name]: value});
-  }
-  
-  const saveEmployee = (e) =>
-  {
+    setemployee({ ...employee, [e.target.name]: value });
+  };
+
+  const saveEmployee = (e) => {
     e.preventDefault();
-    EmployeeService.saveEmployee(employee).then((response) => {
+    EmployeeService.saveEmployee(employee)
+      .then((response) => {
         console.log(response);
-    }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
-    });
+      });
   };
 
   return (
@@ -64,14 +64,17 @@ const AddEmployee = () => {
           </label>
           <input
             type="text"
-            name="email"
+            name="emailId"
             value={employee.emailId}
             onChange={(e) => handleChange(e)}
             className="h10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
         <div className="items-center justify-center h-14 w-full my-4 space-x-4 pt-4">
-          <button className="rounded text-white font-semibold bg-green-400 hover:bg-green-600 py-2 px-2 w-20">
+          <button
+            onClick={saveEmployee}
+            className="rounded text-white font-semibold bg-green-400 hover:bg-green-600 py-2 px-2 w-20"
+          >
             {" "}
             Save{" "}
           </button>
