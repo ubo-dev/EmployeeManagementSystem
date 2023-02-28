@@ -38,7 +38,7 @@ const EmployeeList = () => {
     <div className="container mx-auto my-8">
       <div className="h-12">
         <button
-          onClick={() => navigate("/addEmployee")}
+          onClick={() => navigate("/employee/add")}
           className="rounded bg-slate-600 text-white px-6 py-2"
         >
           {" "}
@@ -57,6 +57,12 @@ const EmployeeList = () => {
               </th>
               <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
                 Email
+              </th>
+              <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                Job Title
+              </th>
+              <th className="text-left font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
+                Phone Number
               </th>
               <th className="text-right font-medium text-gray-500 uppercase tracking-wider py-3 px-6">
                 Actions

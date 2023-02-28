@@ -12,12 +12,12 @@ function App() {
         <NavBar />
         <Routes>
           <Route index element={<EmployeeList />}></Route>
-          <Route path="/" element={<EmployeeList />}></Route>
-          <Route path="/employeeList" element={<EmployeeList />}></Route>
-          <Route path="/addEmployee" element={<AddEmployee />}></Route>
-          <Route path="/editEmployee/:id" element={<UpdateEmployee />}></Route>
+          <Route path="/employee" element={<EmployeeList />}></Route>
+          <Route path="/employee/all" element={<EmployeeList />}></Route>
+          <Route path="/employee/add" element={<AddEmployee />}></Route>
+          <Route path="/employee/update/:id" element={<UpdateEmployee />}></Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter>s
     </>
   );
 }

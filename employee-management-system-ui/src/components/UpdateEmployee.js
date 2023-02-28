@@ -10,6 +10,8 @@ const UpdateEmployee = () => {
     firstName: "",
     lastName: "",
     emailId: "",
+    jobTitle: "",
+    phone: "",
   });
 
   const handleChange = (e) => {
@@ -21,6 +23,7 @@ const UpdateEmployee = () => {
     const fetchData = async () => {
       try {
         const response = await EmployeeService.getEmployeeById(employee.id);
+        console.log(response.data)
         setEmployee(response.data);
       } catch (error) {
         console.log(error);
@@ -34,7 +37,7 @@ const UpdateEmployee = () => {
     console.log(employee);
     EmployeeService.updateEmployee(employee, id)
       .then((response) => {
-        navigate("/employeeList");
+        navigate("/employee/all");
       })
       .catch((error) => {
         console.log(error);
@@ -78,7 +81,31 @@ const UpdateEmployee = () => {
           <input
             type="email"
             name="emailId"
-            value={employee.emailId}
+            value={employee.email}
+            onChange={(e) => handleChange(e)}
+            className="h-10 w-96 border mt-2 px-2 py-2"
+          ></input>
+        </div>
+        <div className="items-center justify-center h-14 w-full my-4">
+          <label className="block text-gray-600 text-sm font-normal">
+            Job Title
+          </label>
+          <input
+            type="jobTitle"
+            name="jobTitle"
+            value={employee.jobTitle}
+            onChange={(e) => handleChange(e)}
+            className="h-10 w-96 border mt-2 px-2 py-2"
+          ></input>
+        </div>
+        <div className="items-center justify-center h-14 w-full my-4">
+          <label className="block text-gray-600 text-sm font-normal">
+            Phone Number
+          </label>
+          <input
+            type="phone"
+            name="phone"
+            value={employee.phone}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
@@ -92,7 +119,7 @@ const UpdateEmployee = () => {
             Update
           </button>
           <button
-            onClick={() => navigate("/employeeList")}
+            onClick={() => navigate("/employee/all")}
             className="rounded text-white font-semibold bg-red-400 hover:bg-red-700 py-2 px-6"
           >
             Cancel

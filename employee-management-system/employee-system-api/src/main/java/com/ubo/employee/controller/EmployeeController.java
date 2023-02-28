@@ -2,7 +2,6 @@ package com.ubo.employee.controller;
 
 import com.ubo.employee.model.Employee;
 import com.ubo.employee.services.EmployeeService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +47,7 @@ public class EmployeeController
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") Long id)
+    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id)
     {
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.OK);

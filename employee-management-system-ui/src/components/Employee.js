@@ -5,7 +5,7 @@ const Employee = ({ employee, deleteEmployee }) => {
   const navigate = useNavigate();
   const editEmployee = (e, id) => {
     e.preventDefault();
-    navigate(`/editEmployee/${id}`);
+    navigate(`/employee/update/${id}`);
   };
 
   return (
@@ -17,7 +17,13 @@ const Employee = ({ employee, deleteEmployee }) => {
         <div className="text-sm text-gray-500">{employee.lastName}</div>
       </td>
       <td className="text-left px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-500">{employee.emailId}</div>
+        <div className="text-sm text-gray-500">{employee.email}</div>
+      </td>
+      <td className="text-left px-6 py-4 whitespace-nowrap">
+        <div className="text-sm text-gray-500">{employee.jobTitle}</div>
+      </td>
+      <td className="text-left px-6 py-4 whitespace-nowrap">
+        <div className="text-sm text-gray-500">{employee.phone}</div>
       </td>
       <td className="text-right px-6 py-4 whitespace-nowrap font-medium text-sm">
         <a

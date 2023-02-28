@@ -7,7 +7,9 @@ const AddEmployee = () => {
     id: "",
     firstName: "",
     lastName: "",
-    emailId: "",
+    email: "",
+    jobTitle: "",
+    phone: "",
   });
 
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ const AddEmployee = () => {
     EmployeeService.saveEmployee(employee)
       .then((response) => {
         console.log(response);
-        navigate("/employeeList");
+        navigate("/employee/all");
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +37,9 @@ const AddEmployee = () => {
       id: "",
       firstName: "",
       lastName: "",
-      emailId: "",
+      email: "",
+      jobTitle: "",
+      phone: "",
     });
   };
 
@@ -78,8 +82,34 @@ const AddEmployee = () => {
           </label>
           <input
             type="text"
-            name="emailId"
-            value={employee.emailId}
+            name="email"
+            value={employee.email}
+            onChange={(e) => handleChange(e)}
+            className="h10 w-96 border mt-2 px-2 py-2"
+          ></input>
+        </div>
+        <div className="items-center justify-center h-14 w-full my-4">
+          <label className="block text-gray-600 text-sm font-normal">
+            {" "}
+            Job Title
+          </label>
+          <input
+            type="jobTitle"
+            name="jobTitle"
+            value={employee.jobTitle}
+            onChange={(e) => handleChange(e)}
+            className="h10 w-96 border mt-2 px-2 py-2"
+          ></input>
+        </div>
+        <div className="items-center justify-center h-14 w-full my-4">
+          <label className="block text-gray-600 text-sm font-normal">
+            {" "}
+            Phone Number
+          </label>
+          <input
+            type="phone"
+            name="phone"
+            value={employee.phone}
             onChange={(e) => handleChange(e)}
             className="h10 w-96 border mt-2 px-2 py-2"
           ></input>
