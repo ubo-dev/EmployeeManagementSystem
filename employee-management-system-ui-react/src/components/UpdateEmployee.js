@@ -14,6 +14,7 @@ const UpdateEmployee = () => {
     phone: "",
   });
 
+
   const handleChange = (e) => {
     const value = e.target.value;
     setEmployee({ ...employee, [e.target.name]: value });
@@ -23,7 +24,6 @@ const UpdateEmployee = () => {
     const fetchData = async () => {
       try {
         const response = await EmployeeService.getEmployeeById(employee.id);
-        console.log(response.data)
         setEmployee(response.data);
       } catch (error) {
         console.log(error);
@@ -34,7 +34,6 @@ const UpdateEmployee = () => {
 
   const updateEmployee = (e) => {
     e.preventDefault();
-    console.log(employee);
     EmployeeService.updateEmployee(employee, id)
       .then((response) => {
         navigate("/employee/all");

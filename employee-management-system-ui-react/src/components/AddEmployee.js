@@ -22,6 +22,7 @@ const AddEmployee = () => {
   const saveEmployee = (e) => {
     e.preventDefault();
     EmployeeService.saveEmployee(employee)
+    console.log(employee)
       .then((response) => {
         console.log(response);
         navigate("/employee/all");
