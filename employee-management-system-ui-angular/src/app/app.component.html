@@ -20,15 +20,9 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input
-        type="search"
-        name="key"
-        id="searchName"
-        class="form-control mr-sm-2"
-        placeholder="Search employees..."
-        required
-      />
-    </form>
+      <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+       name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+   </form>
   </div>
 </nav>
 <div class="container" id="main-container">
@@ -104,14 +98,26 @@
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onAddEmployee(addForm)">
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">First Name</label>
               <input
                 type="text"
                 ngModel
-                name="name"
+                name="firstName"
                 class="form-control"
-                id="name"
-                placeholder="Name"
+                id="firstName"
+                placeholder="firstName"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="name">Last Name</label>
+              <input
+                type="text"
+                ngModel
+                name="lastName"
+                class="form-control"
+                id="lastName"
+                placeholder="lastName"
                 required
               />
             </div>
@@ -199,7 +205,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="updateEmployeeModalLabel">
-            Edit Employee {{ editEmployee!.firstName }}
+            Edit Employee {{ editEmployee?.firstName }}
             {{ editEmployee?.lastName }}
           </h5>
           <button
@@ -214,10 +220,10 @@
         <div class="modal-body">
           <form #editForm="ngForm">
             <div class="form-group">
-              <label for="firstName">Name</label>
+              <label for="firstName">First Name</label>
               <input
                 type="text"
-                ngModel="{{ editEmployee!.firstName }}"
+                ngModel="{{ editEmployee?.firstName }}"
                 name="firstName"
                 class="form-control"
                 id="firstName"
@@ -229,7 +235,7 @@
               <label for="lastName">Last Name</label>
               <input
                 type="text"
-                ngModel="{{ editEmployee!.lastName }}"
+                ngModel="{{ editEmployee?.lastName }}"
                 name="lastName"
                 class="form-control"
                 id="lastName"
@@ -239,7 +245,7 @@
             </div>
             <input
               type="hidden"
-              ngModel="{{ editEmployee!.id }}"
+              ngModel="{{ editEmployee?.id }}"
               name="id"
               class="form-control"
               id="id"
@@ -247,7 +253,7 @@
             />
             <input
               type="hidden"
-              ngModel="{{ editEmployee!.employeeCode }}"
+              ngModel="{{ editEmployee?.employeeCode }}"
               name="userCode"
               class="form-control"
               id="userCode"
@@ -257,7 +263,7 @@
               <label for="email">Email Address</label>
               <input
                 type="email"
-                ngModel="{{ editEmployee!.email }}"
+                ngModel="{{ editEmployee?.email }}"
                 name="email"
                 class="form-control"
                 id="email"
@@ -268,7 +274,7 @@
               <label for="phone">Job title</label>
               <input
                 type="text"
-                ngModel="{{ editEmployee!.jobTitle }}"
+                ngModel="{{ editEmployee?.jobTitle }}"
                 name="jobTitle"
                 class="form-control"
                 id="jobTitle"
@@ -279,7 +285,7 @@
               <label for="phone">Phone</label>
               <input
                 type="text"
-                ngModel="{{ editEmployee!.phone }}"
+                ngModel="{{ editEmployee?.phone }}"
                 name="phone"
                 class="form-control"
                 id="phone"
@@ -291,7 +297,7 @@
               <label for="phone">Image URL</label>
               <input
                 type="text"
-                ngModel="{{ editEmployee!.imageUrl }}"
+                ngModel="{{ editEmployee?.imageUrl }}"
                 name="imageUrl"
                 class="form-control"
                 id="imageUrl"
@@ -346,7 +352,7 @@
         <div class="modal-body">
           <p>
             Are you sure you want to delete employee
-            {{ deleteEmployee!.firstName }}? {{deleteEmployee!.lastName}}?
+            {{ deleteEmployee?.firstName }}? {{deleteEmployee?.lastName}}?
           </p>
           <div class="modal-footer">
             <button
@@ -357,7 +363,7 @@
               No
             </button>
             <button
-              (click)="onDeleteEmployee(deleteEmployee!.id)"
+              (click)="onDeleteEmployee(deleteEmployee?.id)"
               class="btn btn-danger"
               data-dismiss="modal"
             >
