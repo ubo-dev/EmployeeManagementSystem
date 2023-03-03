@@ -98,7 +98,7 @@
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onAddEmployee(addForm)">
             <div class="form-group">
-              <label for="name">First Name</label>
+              <label for="firstName">First Name</label>
               <input
                 type="text"
                 ngModel
@@ -110,7 +110,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="name">Last Name</label>
+              <label for="lastName">Last Name</label>
               <input
                 type="text"
                 ngModel
@@ -134,7 +134,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="phone">Job title</label>
+              <label for="jobTitle">Job title</label>
               <input
                 type="text"
                 ngModel
@@ -158,7 +158,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="phone">Image URL</label>
+              <label for="imageUrl">Image URL</label>
               <input
                 type="text"
                 ngModel
@@ -257,7 +257,7 @@
               name="userCode"
               class="form-control"
               id="userCode"
-              placeholder="Email"
+              placeholder="employeeCode"
             />
             <div class="form-group">
               <label for="email">Email Address</label>
@@ -294,7 +294,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="phone">Image URL</label>
+              <label for="imageUrl">Image URL</label>
               <input
                 type="text"
                 ngModel="{{ editEmployee?.imageUrl }}"
