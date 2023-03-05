@@ -1,4 +1,4 @@
-# EmployeeManagementSystem
+# Employee Management System
 Employee management system using Java, Spring for back-end, React and Angular both for front-end.
 
 I used same back-end system and database for both UI.
