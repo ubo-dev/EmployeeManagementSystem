@@ -35,7 +35,7 @@ const EmployeeList = () => {
   };
 
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-4">
       <div className="h-12">
         <button
           onClick={() => navigate("/employee/add")}
@@ -45,7 +45,7 @@ const EmployeeList = () => {
           Add Employee{" "}
         </button>
       </div>
-      <div className="flex shadow border-b">
+      <div className="flex shadow border-b mt-3">
         <table className="min-w-full">
           <thead className="bg-gray-50">
             <tr>

@@ -4,7 +4,7 @@ const EMPLOYEE_API_BASE_URL = "//localhost:8080/employee";
 
 class EmployeeService {
   saveEmployee(employee) {
-    return axios.post(EMPLOYEE_API_BASE_URL,+"/add" , employee);
+    return axios.post(EMPLOYEE_API_BASE_URL,+"/add", {employee});
   }
 
   getEmployees() {
@@ -19,8 +19,8 @@ class EmployeeService {
     return axios.get(EMPLOYEE_API_BASE_URL + "/find/" + id);
   }
 
-  updateEmployee(employee,id) {
-    return axios.put(EMPLOYEE_API_BASE_URL + "/update/" + id,employee);
+  updateEmployee(employee) {
+    return axios.put(EMPLOYEE_API_BASE_URL + "/update/" + employee);
   }
 }
 

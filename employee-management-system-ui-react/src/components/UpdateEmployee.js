@@ -9,7 +9,7 @@ const UpdateEmployee = () => {
     id: id,
     firstName: "",
     lastName: "",
-    emailId: "",
+    email: "",
     jobTitle: "",
     phone: "",
   });
@@ -44,9 +44,9 @@ const UpdateEmployee = () => {
   };
 
   return (
-    <div className="flex max-w-2xl mx-auto shadow border-b">
+    <div className="flex max-w-xl mx-auto shadow border-b mt-10">
       <div className="px-8 py-8">
-        <div className="font-thin text-2xl tracking-wider">
+        <div className="text-2xl tracking-wider">
           <h1>Update Employee</h1>
         </div>
         <div className="items-center justify-center h-14 w-full my-4">

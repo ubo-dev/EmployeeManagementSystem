@@ -16,6 +16,16 @@ export class AppComponent implements OnInit {
   public editEmployee: Employee | undefined;
   public deleteEmployee: Employee | undefined;
 
+  displayStyle = "none";
+
+  openPopup() {
+    this.displayStyle = "inline-block";
+  }
+
+  closePopup() {
+    this.displayStyle = "none";
+  }
+
   constructor(private employeeService: EmployeeService) {}
 
   // it's going to be called when the component is initialized
@@ -93,7 +103,7 @@ export class AppComponent implements OnInit {
       this.deleteEmployee = employee;
       button.setAttribute('data-target', '#deleteEmployeeModal');
     }
-    container!.appendChild(button);
+    container.appendChild(button);
     button.click();
   }
 

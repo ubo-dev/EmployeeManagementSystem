@@ -21,11 +21,12 @@ const AddEmployee = () => {
 
   const saveEmployee = (e) => {
     e.preventDefault();
-    EmployeeService.saveEmployee(employee)
     console.log(employee)
+    EmployeeService.saveEmployee(employee)
       .then((response) => {
         console.log(response);
         navigate("/employee/all");
+        return response;
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +46,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="flex max-w-2xl mx-auto shadow border-b">
+    <div className="flex max-w-xl mx-auto shadow border-b mt-8">
       <div className="px-8 py-8">
         <div className="font-thin text-2xl tracking-wider">
           <h1> Add New Employee </h1>
